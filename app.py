@@ -40,10 +40,9 @@ def main():
 
     with col2:
         st.subheader(" Find out the most suitable crop to grow in your farm 👨‍🌾")
-        N = Movies.title
 
-        feature_list = [N]
-        single_pred = np.array(feature_list).reshape(1,-1)
+        option = st.selectbox(
+        'How would you like to be contacted?',Movies.title)
         
         if st.button('Predict'):
             test = hybrid(1, "Avatar")
