@@ -5,12 +5,14 @@ import os
 import pickle
 import warnings
 
+from .model import Movies , hybrid
+
 
 st.beta_set_page_config(page_title="Movies Recommender", page_icon="🎬", layout='centered', initial_sidebar_state="collapsed")
 
-def load_model(modelfile):
-	loaded_model = pickle.load(open(modelfile, 'rb'))
-	return loaded_model
+# def load_model(modelfile):
+# 	loaded_model = pickle.load(open(modelfile, 'rb'))
+# 	return loaded_model
 
 def main():
     # title
@@ -38,19 +40,19 @@ def main():
 
     with col2:
         st.subheader(" Find out the most suitable crop to grow in your farm 👨‍🌾")
-        N = st.number_input("Nitrogen", 1,10000)
+        N = Movies.title
 
         feature_list = [N]
         single_pred = np.array(feature_list).reshape(1,-1)
         
         if st.button('Predict'):
-
-            loaded_model = load_model('model.pkl')
-            prediction = loaded_model.predict(single_pred)
+            test = hybrid(1, "Avatar")
+            # loaded_model = load_model('model.pkl')
+            # prediction = loaded_model.predict(single_pred)
             col1.write('''
 		    ## Results 🔍 
 		    ''')
-            col1.success(f"{prediction.item().title()} are recommended by the A.I for your farm.")
+            col1.success(f"{test} are recommended by the A.I for your farm.")
       #code for html ☘️ 🌾 🌳 👨‍🌾  🍃
 
     st.warning("Note: This A.I application is for educational/demo purposes only and cannot be relied upon.")
