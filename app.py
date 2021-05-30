@@ -10,10 +10,6 @@ from model import Movies , hybrid
 
 st.beta_set_page_config(page_title="Movies Recommender", page_icon="🎬", layout='centered', initial_sidebar_state="collapsed")
 
-# def load_model(modelfile):
-# 	loaded_model = pickle.load(open(modelfile, 'rb'))
-# 	return loaded_model
-
 def main():
     # title
     html_temp = """
@@ -44,10 +40,10 @@ def main():
         option = st.selectbox(
         'How would you like to be contacted?',Movies.title)
         
+        col1.write('You selected:', option)
+        
         if st.button('Predict'):
             test = hybrid(1, option)
-            # loaded_model = load_model('model.pkl')
-            # prediction = loaded_model.predict(single_pred)
             col1.write('''
 		    ## Results 🔍 
 		    ''')
