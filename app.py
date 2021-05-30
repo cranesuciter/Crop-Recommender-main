@@ -6,7 +6,7 @@ import pickle
 import warnings
 
 
-st.beta_set_page_config(page_title="Crop Recommender", page_icon="🌿", layout='centered', initial_sidebar_state="collapsed")
+st.beta_set_page_config(page_title="Movies Recommender", page_icon="🎬", layout='centered', initial_sidebar_state="collapsed")
 
 def load_model(modelfile):
 	loaded_model = pickle.load(open(modelfile, 'rb'))
@@ -16,7 +16,7 @@ def main():
     # title
     html_temp = """
     <div>
-    <h1 style="color:MEDIUMSEAGREEN;text-align:left;"> Crop Recommendation  🌱 </h1>
+    <h1 style="color:MEDIUMSEAGREEN;text-align:left;"> Movies Recommendation  🎬 </h1>
     </div>
     """
     st.markdown(html_temp, unsafe_allow_html=True)
@@ -39,14 +39,8 @@ def main():
     with col2:
         st.subheader(" Find out the most suitable crop to grow in your farm 👨‍🌾")
         N = st.number_input("Nitrogen", 1,10000)
-        P = st.number_input("Phosporus", 1,10000)
-        K = st.number_input("Potassium", 1,10000)
-        temp = st.number_input("Temperature",0.0,100000.0)
-        humidity = st.number_input("Humidity in %", 0.0,100000.0)
-        ph = st.number_input("Ph", 0.0,100000.0)
-        rainfall = st.number_input("Rainfall in mm",0.0,100000.0)
 
-        feature_list = [N, P, K, temp, humidity, ph, rainfall]
+        feature_list = [N]
         single_pred = np.array(feature_list).reshape(1,-1)
         
         if st.button('Predict'):
