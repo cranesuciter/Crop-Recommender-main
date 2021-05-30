@@ -5,7 +5,7 @@ import os
 import pickle
 import warnings
 
-from .model import Movies , hybrid
+from model import Movies , hybrid
 
 
 st.beta_set_page_config(page_title="Movies Recommender", page_icon="🎬", layout='centered', initial_sidebar_state="collapsed")
