@@ -12,12 +12,20 @@ st.beta_set_page_config(page_title="Movies Recommender", page_icon="🎬", layou
 
 def main():
     # title
+    page_bg_img = '''
+    <style>
+    body {
+    background-image: url("https://s.studiobinder.com/wp-content/uploads/2020/04/Best-Movies-of-2014-Featured.jpg");
+    background-size: cover;
+    }
+    </style>
+    '''
     html_temp = """
     <div>
     <h1 style="color:MEDIUMSEAGREEN;text-align:left;"> Movies Recommendation  🎬 </h1>
     </div>
     """
-    st.markdown(html_temp, unsafe_allow_html=True)
+    st.markdown(html_temp, page_bg_img, unsafe_allow_html=True)
 
     col1,col2  = st.beta_columns([2,2])
     
