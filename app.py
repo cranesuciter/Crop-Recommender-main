@@ -51,7 +51,7 @@ def main():
             col1.write('''
 		    ## Results 🔍 
 		    ''')
-            col1.success({test.title})
+            col1.success(f"{test.title}")
       #code for html ☘️ 🌾 🌳 👨‍🌾  🍃
 
     st.warning("Note: This A.I application is for educational/demo purposes only and cannot be relied upon.")
