@@ -45,13 +45,13 @@ def main():
         'How would you like to be contacted?',Movies.title)
         
         if st.button('Predict'):
-            test = hybrid(1, "Avatar")
+            test = hybrid(1, option)
             # loaded_model = load_model('model.pkl')
             # prediction = loaded_model.predict(single_pred)
             col1.write('''
 		    ## Results 🔍 
 		    ''')
-            col1.success(f"{test} are recommended by the A.I for your farm.")
+            col1.success(f"{test.title} are recommended by the A.I for your farm.")
       #code for html ☘️ 🌾 🌳 👨‍🌾  🍃
 
     st.warning("Note: This A.I application is for educational/demo purposes only and cannot be relied upon.")
